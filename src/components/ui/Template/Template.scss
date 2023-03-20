@@ -26,11 +26,9 @@ input[type=text] {
   outline: none;
 }
 
-
 input[type=text]:focus {
   border: 2px solid $main-color;
 }
-
 
 textarea {
   width: 100%;
@@ -51,7 +49,23 @@ input[type=button]:focus {
   background-color: $focus-color;
 }
 
-.template-radio {
+select{
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid $neutral-color;
+  border-radius: $border-radius-value;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  outline: none;
+}
+
+select:focus {
+  border: 2px solid $main-color;
+}
+
+
+.template-radio-block {
   .radio {
     margin: 0.8rem 0px;
 
@@ -117,6 +131,7 @@ input[type=button]:focus {
   }
 }
 
+
 .checkbox.style {
   display: inline-block;
   position: relative;
@@ -127,6 +142,7 @@ input[type=button]:focus {
   -ms-user-select: none;
   user-select: none;
 }
+
 .checkbox.style input {
   position: absolute;
   opacity: 0;
@@ -134,18 +150,23 @@ input[type=button]:focus {
   height: 0;
   width: 0;
 }
+
 .checkbox.style input:checked ~ .checkbox__checkmark {
   background-color: $main-color;
 }
+
 .checkbox.style input:checked ~ .checkbox__checkmark:after {
   opacity: 1;
 }
+
 .checkbox.style:hover input ~ .checkbox__checkmark {
   background-color: #eee;
 }
+
 .checkbox.style:hover input:checked ~ .checkbox__checkmark {
   background-color: $main-color;
 }
+
 .checkbox.style .checkbox__checkmark {
   position: absolute;
   top: 2px;
@@ -156,6 +177,7 @@ input[type=button]:focus {
   transition: background-color 0.25s ease;
   border-radius: 4px;
 }
+
 .checkbox.style .checkbox__checkmark:after {
   content: "";
   position: absolute;
@@ -169,7 +191,9 @@ input[type=button]:focus {
   opacity: 0;
   transition: opacity 0.25s ease;
 }
+
 .checkbox.style .checkbox__body {
   line-height: 1.4;
   font-size: 16px;
 }
+
