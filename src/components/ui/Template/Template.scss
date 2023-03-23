@@ -46,7 +46,7 @@ input[type=text]:focus {
 
 textarea {
   width: 100%;
-  padding: 0.7rem 0.4rem;
+  padding: 0.7rem 0.7rem;
   height: 150px;
   font-size: 17px;
   resize: vertical;
@@ -153,7 +153,7 @@ input[type="radio"] {
   }
 }
 
-.template-check {
+.template-checkbox {
   margin: 0.3rem 0px 0px 0px;
 }
 
@@ -217,4 +217,13 @@ input[type="checkbox"] {
   }
 }
 
-
+.template-error{
+  width: 100%;
+  height: auto;
+  padding: 10px 10px;
+  background-color: rgba(255, 0, 24, 0.19);
+  border: 2px solid rgba(255,12,51,0.69);
+  border-radius: 4px;
+  color: rgba(255,12,51,0.69);
+  font-size: 16px;
+}
