@@ -12,6 +12,7 @@ function App() {
     return (
         <>
             <TemplaterPage/>
+            {/*<EditorPage/>*/}
             <Routes>
                 <Route path="/:id" element={<TemplaterPage/>}/>
                 <Route path="/Editor" element={<EditorPage/>}/>
