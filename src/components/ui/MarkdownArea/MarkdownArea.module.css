@@ -1,0 +1,9 @@
+.MarkdownAreaBlock{
+    background-color: #323234;
+    color: #ce4a02;
+    height: 100%;
+    width: 100%;
+    padding: 2vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
