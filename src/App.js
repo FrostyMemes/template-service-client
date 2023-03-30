@@ -2,29 +2,21 @@ import './App.css';
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import TemplateList from "./components/ui/TemplateList/TemplateList";
-import {fetchTemplates} from "./store/reducers/TemplateActions";
-import Editor from "./components/ui/Editor/Editor";
 import Template from "./components/ui/Template/Template";
+import {fetchTemplates} from "./store/reducers/TemplateActions";
+import {Route, Routes} from "react-router-dom";
+import EditorPage from "./components/pages/Editor/EditorPage";
+import TemplaterPage from "./components/pages/Templater/TemplaterPage";
 
 function App() {
-    const templates = useSelector(state => state.templates.templates)
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(fetchTemplates())
-    }, [])
-
-    // const [templates, setTemplates] = useState([
-    //     {id: 1, title: "Template1", markup:"loh loh"},
-    //     {id: 2, title: "Template2", markup:"e e"},
-    //     {id: 3, title: "Template3", markup:"s s"},
-    // ])
-
     return (
-        <div className="workspace">
-            <TemplateList templateList={templates}/>
-            <Template/>
-        </div>
+        <>
+            <TemplaterPage/>
+            <Routes>
+                <Route path="/:id" element={<TemplaterPage/>}/>
+                <Route path="/Editor" element={<EditorPage/>}/>
+            </Routes>
+        </>
     );
 }
 
