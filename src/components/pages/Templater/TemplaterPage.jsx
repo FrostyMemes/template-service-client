@@ -4,6 +4,7 @@ import TemplateList from "../../ui/TemplateList/TemplateList";
 import Template from "../../ui/Template/Template";
 import {fetchTemplates} from "../../../store/reducers/TemplateActions";
 import {useDispatch, useSelector} from "react-redux";
+import CircleButton from "../../ui/CircleButton/CircleButton";
 
 const TemplaterPage = () => {
 
@@ -16,8 +17,13 @@ const TemplaterPage = () => {
 
     return (
         <div className={classes.TemplaterPage}>
-            <TemplateList templateList={templates}/>
-            <Template/>
+            <div className={classes.TemplateListArea}>
+                <TemplateList templateList={templates}/>
+            </div>
+            <div className={classes.TemplateArea}>
+                <Template/>
+            </div>
+            <CircleButton/>
         </div>
     );
 };

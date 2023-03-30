@@ -2,12 +2,12 @@ import React from 'react';
 import {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import useDebounce from "../../hooks/use-debounce";
-import EditorMarkdownArea from "./EditorMarkdownArea";
+import MarkdownArea from "./MarkdownArea";
 import TemplateList from "../TemplateList/TemplateList";
 import {sendMarkdown} from "../../../services/MarkdownService";
 import {fetchTemplates, saveTemplate, deleteTemplate} from "../../../store/reducers/TemplateActions";
 import EditorRenderArea from "./EditorRenderArea";
-import classes from "./Editor.module.css";
+import classes from "./MarkdownArea.module.css";
 
 
 const Editor = () => {
@@ -53,7 +53,7 @@ const Editor = () => {
 
     return (
             <div className={classes.editorArea}>
-                <EditorMarkdownArea onChange={markdown => setMarkdown(markdown)}/>
+                <MarkdownArea onChange={markdown => setMarkdown(markdown)}/>
                 <EditorRenderArea render={mdRender}/>
             </div>
     );

@@ -1,3 +1,15 @@
 .TemplaterPage {
   display: flex;
 }
+
+.TemplateListArea{
+  height: 100vh;
+  width: 14%;
+  flex: 0 1 auto;
+}
+
+.TemplateArea{
+  flex: 1 0 auto;
+  width: 82%;
+  height: 100%;
+}

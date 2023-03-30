@@ -4,7 +4,7 @@ import "./Template.scss";
 import CircleButton from "../CircleButton/CircleButton";
 
 
-const Template = () => {
+const Template = ({markup}) => {
 
     //const template = useSelector(state => state.templates.currentTemplate)
     const template = `
@@ -70,7 +70,6 @@ const Template = () => {
         <div className="template-block">
             {/*<div dangerouslySetInnerHTML={{__html: template?.markup}}></div>*/}
             <div dangerouslySetInnerHTML={{__html: template}}></div>
-            <CircleButton/>
         </div>
     );
 };
