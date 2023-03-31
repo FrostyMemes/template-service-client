@@ -10,6 +10,8 @@ $dark: #000;
   overflow-x: hidden;
   overflow-y: auto;
   font-size: 18px;
+  height: 100%;
+  width: auto;
 }
 
 .template-element {
@@ -43,7 +45,7 @@ input[type=text]:focus {
 
 textarea {
   width: 100%;
-  padding: 0.7rem 0.7rem;
+  padding: 1em 1em;
   height: 150px;
   font-size: 17px;
   resize: vertical;
@@ -215,9 +217,9 @@ input[type="checkbox"] {
 }
 
 .template-error{
-  width: 100%;
+  width: auto;
   height: auto;
-  padding: 10px 10px;
+  padding: 1rem 1rem;
   background-color: rgba(255, 0, 24, 0.19);
   border: 2px solid rgba(255,12,51,0.69);
   border-radius: 4px;
