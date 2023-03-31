@@ -6,6 +6,7 @@ import {sendMarkdown} from "../../../services/MarkdownService";
 import {fetchTemplates, saveTemplate, deleteTemplate} from "../../../store/reducers/TemplateActions";
 import MarkdownArea from "../../ui/MarkdownArea/MarkdownArea";
 import Template from "../../ui/Template/Template";
+import classes from "./EditorPage.module.scss";
 
 
 const EditorPage = () => {
@@ -42,22 +43,13 @@ const EditorPage = () => {
     }, [debouncedRenderTerm])
 
     return (
-        <div className="editor">
-            <div className="template_title">
-                <h1>{title}</h1>
-            </div>
-
-            <div className="control_buttons">
-                <input type="button" value="Сохранить"/>
-            </div>
-
-            <div className="editor_area">
-                <div className="markdown_area">
+        <div className={classes.editor}>
+            <div className={classes.editorArea}>
+                <div className={classes.markdownArea}>
                     <MarkdownArea onChange={markdown => setMarkdown(markdown)}/>
                 </div>
-
-                <div className="render_area">
-                    <Template markup={mdRender}/>>
+                <div className={classes.renderArea}>
+                    <Template markup={mdRender}/>
                 </div>
             </div>
         </div>

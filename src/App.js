@@ -11,8 +11,8 @@ import TemplaterPage from "./components/pages/Templater/TemplaterPage";
 function App() {
     return (
         <>
-            <TemplaterPage/>
-            {/*<EditorPage/>*/}
+           {/*<TemplaterPage/>*/}
+            <EditorPage/>
             <Routes>
                 <Route path="/:id" element={<TemplaterPage/>}/>
                 <Route path="/Editor" element={<EditorPage/>}/>

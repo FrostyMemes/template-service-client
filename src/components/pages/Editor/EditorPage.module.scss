@@ -1,9 +1,19 @@
 .editor{
-  margin: 5% auto auto;
-  width: auto;
+
 }
 
-.editor_area{
+.editorArea{
   display: flex;
+  justify-content: center;
+  border: 2px solid rgba(12, 109, 255, 0.69);
+}
+
+.markdownArea{
+  height: 60vh;
+  width: 1000px;
+}
+
+.renderArea{
+  width: 50vw;
 }
 
