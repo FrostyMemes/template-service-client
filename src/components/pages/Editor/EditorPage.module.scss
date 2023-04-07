@@ -1,19 +1,24 @@
 .editor{
-
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .editorArea{
   display: flex;
   justify-content: center;
   border: 2px solid rgba(12, 109, 255, 0.69);
+
+}
+
+.blockArea{
+  flex-grow: 1;
 }
 
 .markdownArea{
-  height: 60vh;
-  width: 1000px;
+  width: auto;
 }
 
 .renderArea{
-  width: 50vw;
+  width: auto;
 }
 

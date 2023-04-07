@@ -9,6 +9,8 @@ const MarkdownArea = ({onChange}) => {
 {/*            <textarea placeholder={process.env.REACT_APP_BACKEND_ADDRESS}
                       onChange={(e) => onChange(e.target.value)}>
             </textarea>*/}
+      <textarea placeholder="Markdown">
+            </textarea>
         </div>
 
     )

@@ -45,11 +45,15 @@ const EditorPage = () => {
     return (
         <div className={classes.editor}>
             <div className={classes.editorArea}>
-                <div className={classes.markdownArea}>
-                    <MarkdownArea onChange={markdown => setMarkdown(markdown)}/>
+                <div className={classes.blockArea}>
+                    <div className={classes.markdownArea}>
+                        <MarkdownArea onChange={markdown => setMarkdown(markdown)}/>
+                    </div>
                 </div>
-                <div className={classes.renderArea}>
-                    <Template markup={mdRender}/>
+                <div className={classes.blockArea}>
+                    <div className={classes.renderArea}>
+                        <Template markup={mdRender}/>
+                    </div>
                 </div>
             </div>
         </div>

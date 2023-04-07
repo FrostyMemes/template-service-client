@@ -1,7 +1,14 @@
-.MarkdownAreaBlock{
-    background-color: #323234;
-    color: #ce4a02;
-    padding: 10px;
+.MarkdownAreaBlock {
     width: auto;
-    height: 100%;
+    height: auto;
+}
+
+
+.MarkdownAreaBlock > textarea{
+    background-color: #323234;
+    color: #e55200;
+    font-size: 17px;
+    width: 100%;
+    padding: 1em 1em;
+    resize: none;
 }
