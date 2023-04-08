@@ -1,24 +1,50 @@
+.editorPage{
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 100vh;
+}
+
+.info{
+  flex: 1 1 auto;
+  margin-top: 20px;
+}
+
+.control{
+  flex: 1 0 auto;
+  margin-left: auto;
+  margin-right: 0;
+
+}
+
+.controlButtons{
+
+}
+
 .editor{
-  margin-left: 10px;
-  margin-right: 10px;
+  flex: 1 0 auto;
+  border: 3px solid rgba(0, 255, 14, 0.69);
 }
 
 .editorArea{
   display: flex;
   justify-content: center;
-  border: 2px solid rgba(12, 109, 255, 0.69);
+  width: auto;
+  height: 100%;
 
-}
-
-.blockArea{
-  flex-grow: 1;
 }
 
 .markdownArea{
+  flex-grow: 1;
+  margin-top: 20px;
   width: auto;
+
 }
 
 .renderArea{
+  flex-grow: 1;
   width: auto;
+  overflow-y: auto;
 }
 

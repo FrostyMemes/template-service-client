@@ -43,17 +43,24 @@ const EditorPage = () => {
     }, [debouncedRenderTerm])
 
     return (
-        <div className={classes.editor}>
-            <div className={classes.editorArea}>
-                <div className={classes.blockArea}>
-                    <div className={classes.markdownArea}>
-                        <MarkdownArea onChange={markdown => setMarkdown(markdown)}/>
-                    </div>
+        <div className={classes.editorPage}>
+            <div className={classes.info}>
+                Title
+            </div>
+            <div className={classes.control}>
+                <div className={classes.controlButtons}>
+                    <input type="button"/>
                 </div>
-                <div className={classes.blockArea}>
-                    <div className={classes.renderArea}>
-                        <Template markup={mdRender}/>
-                    </div>
+            </div>
+            <div className={classes.editor}>
+                <div className={classes.editorArea}>
+                        <div className={classes.markdownArea}>
+                            <MarkdownArea onChange={markdown => setMarkdown(markdown)}/>
+                        </div>
+                        <div className={classes.renderArea}>
+                            <Template markup={mdRender}/>
+                        </div>
+
                 </div>
             </div>
         </div>
