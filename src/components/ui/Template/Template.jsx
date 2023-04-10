@@ -68,7 +68,7 @@ const Template = ({markup}) => {
 
     return (
         <div className="template-block">
-            {/*<div dangerouslySetInnerHTML={{__html: template?.markup}}></div>*/}
+            {/*<div dangerouslySetInnerHTML={{__html: markup}}></div>*/}
             <div dangerouslySetInnerHTML={{__html: template}}></div>
         </div>
     );

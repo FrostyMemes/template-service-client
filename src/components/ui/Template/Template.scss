@@ -18,7 +18,7 @@ $dark: #000;
   margin: 1.6rem 0 2.1rem 0;
 }
 
-label {
+.template-label {
   display: inline-block;
   margin-bottom: 10px;
 }
@@ -163,6 +163,7 @@ input[type="checkbox"] {
   + .check-label {
     &:before {
       content: '';
+      margin-bottom: 10px;
       background: $background-color;
       border-radius: 5px;
       border: 1px solid darken($background-color, 25%);
