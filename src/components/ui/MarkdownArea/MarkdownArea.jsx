@@ -5,7 +5,7 @@ const MarkdownArea = ({onChange}) => {
 
     return (
         <div className={classes.MarkdownAreaBlock}>
-          <textarea placeholder="Enter markdown"/>
+            <textarea placeholder="Enter markdown" /*{onChange={e => onChange(e.target.value)}}*//>
         </div>
     )
 }

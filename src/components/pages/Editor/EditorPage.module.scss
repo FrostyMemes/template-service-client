@@ -1,50 +1,67 @@
+$title-background-color: #0083ff;
+$button-color: #0c69ef;
+$focus-color: #134388;
+$neutral-color: #878d8d;
+$background-color: #f4f4f4;
+$dark: #000;
+$margin-top-space: 10px;
+$margin-border-space: 20px;
+
 .editorPage{
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
-  margin-left: 20px;
-  height: 100vh;
+  margin: $margin-top-space $margin-border-space 0px;
 }
 
-.info{
-  flex: 1 1 auto;
-  margin-top: 20px;
+.templateTitle{
+  padding-left: 2rem;
+  display: inline;
+  color: white;
+  background-color: $title-background-color;
 }
 
-.control{
-  flex: 1 0 auto;
-  margin-left: auto;
-  margin-right: 0;
+.controlArea{
+  display: flex;
+  justify-content: flex-end;
+  background-color: $button-color;
 
 }
 
-.controlButtons{
 
+.controlButton{
+
+  height: 2.6rem;
+  width: 9rem;
+  background-color: $button-color;
+  color: white;
+  border: 0px solid $button-color;
+  font-size: 17px;
+}
+
+.controlButton:hover{
+  background-color: $focus-color;
 }
 
 .editor{
-  flex: 1 0 auto;
-  border: 3px solid rgba(0, 255, 14, 0.69);
+  border: 1px solid rgb(0, 243, 11);
 }
 
-.editorArea{
+.editorTemplateMarkdown{
   display: flex;
   justify-content: center;
   width: auto;
-  height: 100%;
-
+  height: 95vh;
+  max-height: 95vh;
 }
 
-.markdownArea{
-  flex-grow: 1;
-  margin-top: 20px;
-  width: auto;
 
+.markdownArea{
+  flex: 0 0 50%;
+  margin-bottom: 2rem;
 }
 
 .renderArea{
-  flex-grow: 1;
-  width: auto;
+  flex: 1 0 auto;
   overflow-y: auto;
 }
 

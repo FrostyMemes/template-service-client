@@ -34,29 +34,30 @@ const EditorPage = () => {
         }
     }, [])*/
 
-    useEffect(() => {
+/*    useEffect(() => {
         if (debouncedRenderTerm) {
+            console.log(mdMarkdown)
             renderTemplate(mdMarkdown)
         } else {
             setRender('');
         }
-    }, [debouncedRenderTerm])
+    }, [debouncedRenderTerm])*/
 
     return (
         <div className={classes.editorPage}>
-            <div className={classes.info}>
-                Title
+            <div className={classes.templateTitle}>
+                <h1>Template title</h1>
             </div>
-            <div className={classes.control}>
-                <div className={classes.controlButtons}>
-                    <input type="button"/>
-                </div>
+            <div className={classes.controlArea}>
+                <input type="button" className={classes.controlButton} value="Сохранить"/>
             </div>
             <div className={classes.editor}>
-                <div className={classes.editorArea}>
+                <div className={classes.editorTemplateMarkdown}>
                         <div className={classes.markdownArea}>
                             <MarkdownArea onChange={markdown => setMarkdown(markdown)}/>
                         </div>
+
+
                         <div className={classes.renderArea}>
                             <Template markup={mdRender}/>
                         </div>
