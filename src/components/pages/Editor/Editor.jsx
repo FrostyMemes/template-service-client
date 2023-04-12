@@ -6,19 +6,16 @@ import {sendMarkdown} from "../../../services/MarkdownService";
 import {fetchTemplates, saveTemplate, deleteTemplate} from "../../../store/reducers/TemplateActions";
 import MarkdownArea from "../../ui/MarkdownArea/MarkdownArea";
 import Template from "../../ui/Template/Template";
-import classes from "./EditorPage.module.scss";
+import classes from "./Editor.module.scss";
+import * as TemplateService from "../../../services/TemplateService";
 
 
-const EditorPage = () => {
+const Editor = ({title, markdown, render, setMarkdown, setTitle, setRender, saveTemplate}) => {
 
-    // const templates = useSelector(state => state.templates.templates)
-    // const dispatch = useDispatch()
-
-    const [mdMarkdown, setMarkdown] = useState('mTest')
-    const [mdRender, setRender] = useState('rTest')
-    const [title, setTitle] = useState('Test')
-
-    const debouncedRenderTerm = useDebounce(mdMarkdown, 700);
+   /* const [title, setTitle] = useState('Loh')
+    const [mdmarkdown, setMarkdown] = useState('')
+    const [render, setRender] = useState('')*/
+    const debouncedRenderTerm = useDebounce(markdown, 700);
 
     const renderTemplate = (markdown) => {
         sendMarkdown(markdown)
@@ -26,46 +23,47 @@ const EditorPage = () => {
             .catch(error => setRender(error.message))
     }
 
-/*    useEffect(() => {
-        if (debouncedSearchTerm) {
-            renderTemplate(mdMarkdown)
-        } else {
-            setRender('');
-        }
-    }, [])*/
-
-/*    useEffect(() => {
+    useEffect(() => {
         if (debouncedRenderTerm) {
-            console.log(mdMarkdown)
-            renderTemplate(mdMarkdown)
+            renderTemplate(markdown)
         } else {
             setRender('');
         }
-    }, [debouncedRenderTerm])*/
+    }, [])
+
+    useEffect(() => {
+        if (debouncedRenderTerm) {
+            console.log(markdown)
+            renderTemplate(markdown)
+        } else {
+            setRender('');
+        }
+    }, [debouncedRenderTerm])
 
     return (
         <div className={classes.editorPage}>
             <div className={classes.templateTitle}>
-                <h1>Template title</h1>
+                <h1>{title}</h1>
             </div>
             <div className={classes.controlArea}>
-                <input type="button" className={classes.controlButton} value="Сохранить"/>
+                <input type="button"
+                       value="Сохранить"
+                       className={classes.controlButton}
+                       onClick={() => saveTemplate()}
+                />
             </div>
             <div className={classes.editor}>
                 <div className={classes.editorTemplateMarkdown}>
                         <div className={classes.markdownArea}>
                             <MarkdownArea onChange={markdown => setMarkdown(markdown)}/>
                         </div>
-
-
                         <div className={classes.renderArea}>
-                            <Template markup={mdRender}/>
+                            <Template markup={render}/>
                         </div>
-
                 </div>
             </div>
         </div>
     );
 };
 
-export default EditorPage;
+export default Editor;
