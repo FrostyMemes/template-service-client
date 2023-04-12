@@ -53,11 +53,11 @@ const Template = ({markup}) => {
                 <label for="check-id" class="template-label">check</label>
             <div class="template-checkbox">
                 <input id="check-1" name="check" type="checkbox">
-                <label for="check-1" class="check-label">Checked</label>
+                <label for="check-1" class="checkbox-label">Checked</label>
             </div>
             <div class="template-check">
                 <input id="check-2" name="check" type="checkbox">
-                <label  for="check-2" class="check-label">Unchecked</label>
+                <label  for="check-2" class="checkbox-label">Unchecked</label>
             </div>
             </div>
         </div>
@@ -68,8 +68,8 @@ const Template = ({markup}) => {
 
     return (
         <div className="template-block">
-            {/*<div dangerouslySetInnerHTML={{__html: markup}}></div>*/}
-            <div dangerouslySetInnerHTML={{__html: template}}></div>
+            <div dangerouslySetInnerHTML={{__html: markup}}></div>
+            {/*<div dangerouslySetInnerHTML={{__html: template}}></div>*/}
         </div>
     );
 };
