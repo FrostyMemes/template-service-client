@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from "./TemplaterPage.module.scss";
 import TemplateList from "../../ui/TemplateList/TemplateList";
 import Template from "../../ui/Template/Template";
@@ -10,6 +10,8 @@ const TemplaterPage = () => {
 
     const templates = useSelector(state => state.templates.templates)
     const dispatch = useDispatch()
+
+    const [currentId, setCurrentId] = useState(null)
 
     useEffect(() => {
         dispatch(fetchTemplates())
