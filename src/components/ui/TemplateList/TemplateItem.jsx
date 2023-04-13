@@ -6,13 +6,11 @@ import classes from "./TemplateList.module.css";
 const TemplateItem = ({id, title}) => {
     return (
         <>
-            {/*<Link to={`/${id}`}>*/}
-                <div className={classes.templateItem}>
-                    <div className={classes.templateContent}>
-                        {title}
-                    </div>
+            <div className={classes.templateItem}>
+                <div className={classes.templateContent}>
+                    {title}
                 </div>
-            {/*</Link>*/}
+            </div>
         </>
     );
 };
