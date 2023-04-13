@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import TemplateList from "./components/ui/TemplateList/TemplateList";
 import Template from "./components/ui/Template/Template";
-import {fetchTemplates} from "./store/reducers/TemplateActions";
+import {fetchTemplates} from "./store/reducers/TemplatesActions";
 import {Route, Routes} from "react-router-dom";
 import Editor from "./components/pages/Editor/Editor";
 import TemplaterPage from "./components/pages/Templater/TemplaterPage";
@@ -17,8 +17,8 @@ function App() {
             {/*<Editor/>*/}
             <Routes>
                 <Route path="/" element={<TemplaterPage/>}/>
-                <Route path="/Editor/NewTemplate" element={<EditorNewPage/>}/>
-                <Route path="/Editor/:id" element={<EditorUpdatePage/>}/>
+                <Route path="/editor/new" element={<EditorNewPage/>}/>
+                <Route path="/editor/:id" element={<EditorUpdatePage/>}/>
             </Routes>
         </>
     );
