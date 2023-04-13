@@ -46,8 +46,7 @@ const Template = ({markup}) => {
                 </div>
             </div>
         </div>
-              
-              
+                      
         <div class="template-element">
             <div id="check-id" class="template-checkbox-element">
                 <label for="check-id" class="template-label">check</label>
