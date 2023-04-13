@@ -10,6 +10,10 @@ export async function getTemplateById(id) {
     return api.get(`${serviceUrl}/${id}`)
 }
 
+export async function updateTemplate(template){
+    return api.put(`${serviceUrl}/${template.Id}`, template)
+}
+
 export async function saveTemplate(template) {
     return api.post(serviceUrl, template)
 }
