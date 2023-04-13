@@ -1,36 +1,22 @@
 import React, {useState} from 'react';
 import Editor from  './Editor'
-import * as TemplateService from "../../../services/TemplateService";
+import {saveTemplate} from "../../../store/reducers/TemplatesActions";
+import {useDispatch} from "react-redux";
 
 const EditorNewPage = () => {
-
-    const [title, setTitle] = useState('New template')
-    const [markdown, setMarkdown] = useState('')
-    const [render, setRender] = useState('')
-
-    const handlerSaveTemplate = () =>
+    const dispatch = useDispatch()
+    const handlerSaveTemplate = (data) =>
     {
-        TemplateService.saveTemplate(
-            {
-                Title: title,
-                Markdown: markdown,
-                Markup: render,
-                UserId: 1
-            }
-        ).then(response => console.log(response))
-            .catch(error => setRender(error.message))
+        dispatch(saveTemplate(data))
     }
 
     return (
         <div>
             <Editor
-                title={title}
-                markdown={markdown}
-                render = {render}
-                setMarkdown={setMarkdown}
-                setTitle={setTitle}
-                setRender={setRender}
-                saveTemplate={handlerSaveTemplate}
+                templateTitle="New template"
+                templateMarkdown=""
+                templateMarkup=""
+                actionTemplate={handlerSaveTemplate}
             />
         </div>
     );

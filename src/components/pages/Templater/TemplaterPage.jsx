@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import classes from "./TemplaterPage.module.scss";
 import TemplateList from "../../ui/TemplateList/TemplateList";
 import Template from "../../ui/Template/Template";
-import {fetchTemplates} from "../../../store/reducers/TemplateActions";
+import {fetchTemplates} from "../../../store/reducers/TemplatesActions";
 import {useDispatch, useSelector} from "react-redux";
 import CircleButton from "../../ui/CircleButton/CircleButton";
 
@@ -12,6 +12,7 @@ const TemplaterPage = () => {
     const dispatch = useDispatch()
 
     const [currentId, setCurrentId] = useState(null)
+    const [markup, setMarkup] = useState(null)
 
     useEffect(() => {
         dispatch(fetchTemplates())
