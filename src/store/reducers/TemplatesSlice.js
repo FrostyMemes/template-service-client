@@ -2,10 +2,11 @@ import {createSlice} from "@reduxjs/toolkit";
 import {
     fetchTemplates,
     deleteTemplate,
-    saveTemplate
-} from "./TemplateActions";
+    saveTemplate,
+    updateTemplate
+} from "./TemplatesActions";
 
-const templateSlice = createSlice({
+const templatesSlice = createSlice({
     name: 'templates',
     initialState:{
         templates:[],
@@ -23,8 +24,6 @@ const templateSlice = createSlice({
         [fetchTemplates.fulfilled]: (state, action) => {
             state.templates = action.payload
             state.status = false
-            if (state.templates.length > 0)
-                state.currentTemplate = state.templates[0].id
         },
         [fetchTemplates.rejected]: (state, action) => {
             state.status = false
@@ -41,6 +40,19 @@ const templateSlice = createSlice({
             state.error = action.payload
         },
 
+        [updateTemplate.pending]:(state, action) => {
+
+        },
+        [updateTemplate.fulfilled]:(state, action) => {
+            state.templates.push({
+                id: action.payload.Id,
+                title: action.payload.Title
+            })
+        },
+        [updateTemplate.rejected]:(state, action) => {
+            state.error = action.payload
+        },
+
         [deleteTemplate.pending]:(state, action) => {
 
         },
@@ -54,6 +66,6 @@ const templateSlice = createSlice({
     },
 })
 
-export const {addTemplate, removeTemplate, getAllTemplates} = templateSlice.actions;
+export const {addTemplate, removeTemplate, getAllTemplates} = templatesSlice.actions;
 
-export default templateSlice.reducer;
+export default templatesSlice.reducer;

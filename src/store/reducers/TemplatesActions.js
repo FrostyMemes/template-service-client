@@ -19,6 +19,21 @@ export const saveTemplate = createAsyncThunk(
     async (template, thunkAPI) => {
         try {
             const response = await TemplateService.saveTemplate(template)
+            console.log(response.data)
+            return response.data
+        } catch (e){
+            return thunkAPI.rejectWithValue(e)
+        }
+
+    }
+)
+
+export const updateTemplate = createAsyncThunk(
+    'templates/updateTemplate',
+    async (template, thunkAPI) => {
+        try {
+            const response = await TemplateService.updateTemplate(template)
+            console.log(response.data)
             return response.data
         } catch (e){
             return thunkAPI.rejectWithValue(e)
