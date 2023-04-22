@@ -5,8 +5,7 @@ import {useDispatch} from "react-redux";
 
 const EditorNewPage = () => {
     const dispatch = useDispatch()
-    const handlerSaveTemplate = (data) =>
-    {
+    const handlerSaveTemplate = (data) => {
         dispatch(saveTemplate(data))
     }
 

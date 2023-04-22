@@ -9,9 +9,9 @@ import classes from "./Editor.module.scss";
 const Editor = ({templateTitle, templateMarkdown, templateMarkup, actionTemplate}) => {
 
 
-    const [title, setTitle] = useState(templateTitle)
-    const [markdown, setMarkdown] = useState(templateMarkdown)
-    const [render, setRender]= useState(templateMarkup)
+    const [title, setTitle] = useState("")
+    const [markdown, setMarkdown] = useState("")
+    const [render, setRender]= useState("")
 
     const debouncedRenderTerm = useDebounce(markdown, 700);
 
@@ -37,15 +37,18 @@ const Editor = ({templateTitle, templateMarkdown, templateMarkup, actionTemplate
         }
     }, [debouncedRenderTerm])
 
+    useEffect(() => {
+        setTitle(templateTitle)
+        setMarkdown(templateMarkdown)
+    },[templateTitle, templateMarkdown])
+
     return (
         <div className={classes.editorPage}>
             <div className={classes.templateTitle}>
                 <h1>{title}</h1>
             </div>
             <div className={classes.controlArea}>
-                <input type="button"
-                       value="Сохранить"
-                       className={classes.controlButton}
+                <input type="button" value="Сохранить" className={classes.controlButton}
                        onClick={() => actionTemplate(
                            {
                                Title: title,
@@ -59,7 +62,7 @@ const Editor = ({templateTitle, templateMarkdown, templateMarkup, actionTemplate
             <div className={classes.editor}>
                 <div className={classes.editorTemplateMarkdown}>
                         <div className={classes.markdownArea}>
-                            <MarkdownArea onChange={markdown => setMarkdown(markdown)}/>
+                            <MarkdownArea  markdown={markdown} onChange={markdown => setMarkdown(markdown)}/>
                         </div>
                         <div className={classes.renderArea}>
                             <Template markup={render}/>
