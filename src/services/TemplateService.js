@@ -1,6 +1,6 @@
 import api from "../http";
 
-const serviceUrl = "template"
+const serviceUrl = process.env.REACT_APP_BACKEND_TEMPLATE_ADDRESS
 
 export async function getAllTemplates() {
     return api.get(`${serviceUrl}/getall`)
