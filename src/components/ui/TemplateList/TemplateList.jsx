@@ -4,16 +4,17 @@ import classes from "./TemplateList.module.css"
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
-const TemplateList = (props) => {
+const TemplateList = ({templateList, changeCurrentIdTemplate}) => {
     const dispatch = useDispatch()
 
     return (
         <div className={classes.templateList}>
-            {props.templateList.map(template =>
+            {templateList.map(template =>
                 <TemplateItem
                     key={template.id}
                     id={template.id}
                     title={template.title}
+                    changeCurrentIdTemplate={changeCurrentIdTemplate}
                 />
             )}
         </div>
