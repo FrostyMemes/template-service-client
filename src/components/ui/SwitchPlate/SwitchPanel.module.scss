@@ -2,15 +2,29 @@
   height: auto;
   width: auto;
   display: flex;
+  justify-content: flex-end;
 }
 
-.switchPanelButton{
+.switchPanelButton {
+  padding: 0.2rem 0.7rem;
+  margin: 0.3rem 0.2rem;
+  height: auto;
+  width: auto;
+  color: white;
+  border-radius: 5px;
+  background: linear-gradient(59deg, rgba(5,63,152,1) 0%, rgba(0,64,135,1) 49%, rgba(109,192,249,1) 100%);
+}
+
+.switchPanelButton:hover{
+  background: rgb(87, 171, 255);
+
+}
+
+.switchPanelButton:active{
+  background: rgb(0, 61, 121);
 
 }
 
 .switchPanelButtonIcon{
-  height: auto;
-  width: auto;
-  color: white;
-  font-size: 1.5rem;
+
 }
