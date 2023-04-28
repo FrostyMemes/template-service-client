@@ -1,10 +1,3 @@
-.switchPanel{
-  height: auto;
-  width: auto;
-  display: flex;
-  justify-content: flex-end;
-}
-
 .switchPanelButton {
   padding: 0.2rem 0.7rem;
   margin: 0.3rem 0.2rem;
@@ -17,14 +10,8 @@
 
 .switchPanelButton:hover{
   background: rgb(87, 171, 255);
-
 }
 
 .switchPanelButton:active{
   background: rgb(0, 61, 121);
-
-}
-
-.switchPanelButtonIcon{
-
 }
