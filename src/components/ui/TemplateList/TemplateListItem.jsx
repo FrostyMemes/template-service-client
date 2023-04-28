@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import classes from "./TemplateList.module.css";
 
 
-const TemplateItem = ({id, title, changeCurrentIdTemplate}) => {
+const TemplateListItem = ({id, title, changeCurrentIdTemplate}) => {
     return (
         <>
             <div className={classes.templateItem}>
@@ -16,4 +16,4 @@ const TemplateItem = ({id, title, changeCurrentIdTemplate}) => {
     );
 };
 
-export default TemplateItem;
+export default TemplateListItem;
