@@ -27,14 +27,6 @@ const Editor = ({templateTitle, templateMarkdown, templateMarkup, actionTemplate
         } else {
             setRender('');
         }
-    }, [])
-
-    useEffect(() => {
-        if (debouncedRenderTerm) {
-            renderTemplate(markdown)
-        } else {
-            setRender('');
-        }
     }, [debouncedRenderTerm])
 
     useEffect(() => {
