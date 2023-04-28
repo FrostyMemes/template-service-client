@@ -1,15 +1,14 @@
 import React from 'react';
-import TemplateItem from "./TemplateItem";
-import SwitchPanel from "../SwitchPlate/SwitchPanel";
+import TemplateListItem from "./TemplateListItem";
+
 import classes from "./TemplateList.module.css"
 
 const TemplateList = ({templateList, changeCurrentIdTemplate}) => {
 
     return (
         <div className={classes.templateList}>
-            <SwitchPanel/>
             {templateList.map(template =>
-                <TemplateItem
+                <TemplateListItem
                     key={template.id}
                     id={template.id}
                     title={template.title}
