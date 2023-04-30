@@ -28,7 +28,7 @@ const TemplaterPage = () => {
         }
     }
 
-    const listViewer = (listNumber) =>{
+    const changeListView = (listNumber) => {
         switch (listNumber){
             case ListViewOptions.TemplateListView:
                 return <TemplateList
