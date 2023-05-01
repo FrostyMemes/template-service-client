@@ -14,24 +14,41 @@ $margin-border-space: 20px;
 }
 
 .templateTitle{
-  padding-left: 2rem;
-  display: inline;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 3em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  height: 2em;
   color: white;
   background-color: $title-background-color;
+}
+
+.templateTitle > input{
+
+  display: block;
+  font-size: 2em;
+  margin: 0.67em 0;
+  font-weight: bold;
+  padding: 0px;
+  border: rgba(255, 255, 255, 0) 0px;
+}
+
+.templateTitleIconButton{
+  padding-left: 1em;
 }
 
 .controlArea{
   display: flex;
   justify-content: flex-end;
   background-color: $button-color;
-
 }
-
 
 .controlButton{
 
-  height: 2.6rem;
-  width: 9rem;
+  height: 2.6em;
+  width: 9em;
   background-color: $button-color;
   color: white;
   border: 0px solid $button-color;
