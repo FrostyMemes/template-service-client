@@ -10,6 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getTemplateById} from "../../../services/TemplateService";
 import {faFileWord, faTableList} from "@fortawesome/free-solid-svg-icons";
 import ListViewOptions from "./ListViewOptions";
+import DragAndDropFileArea from "../../ui/DragAndDropFileArea/DragAndDropFileArea";
 
 
 const TemplaterPage = () => {
@@ -20,12 +21,30 @@ const TemplaterPage = () => {
     const [currentTemplateId, setCurrentTemplateId] = useState(null)
     const [markup, setMarkup] = useState(null)
     const [listViewOption, setListViewOption] = useState(ListViewOptions.TemplateListView)
+    const [drag, setDrag] = useState(false)
 
-    const handlerDeleteTemplate = () => {
+    const deleteTemplateHandler = () => {
         if (currentTemplateId){
             dispatch(deleteTemplate(currentTemplateId))
             setCurrentTemplateId(null)
         }
+    }
+
+    const dragStartHandler = (e) => {
+        e.preventDefault()
+        setDrag(true)
+    }
+
+    const dragLeaveHandler = (e) => {
+        e.preventDefault()
+        setDrag(false)
+    }
+
+    const onDropHandler = (e) => {
+        e.preventDefault()
+        const files = [...e.dataTransfer.files]
+        console.log(files)
+        setDrag(false)
     }
 
     const changeListView = (listNumber) => {
@@ -64,12 +83,21 @@ const TemplaterPage = () => {
                         onClick={() => setListViewOption(ListViewOptions.FileListView)}/>
                 </div>
                 {listViewOption === ListViewOptions.TemplateListView
-                    ?
-                    <TemplateList
+                    ? (<TemplateList
                         templateList={templates}
-                        changeCurrentIdTemplate={setCurrentTemplateId}/>
-                    :
-                    <FileList/>
+                        changeCurrentIdTemplate={setCurrentTemplateId}/>)
+                    : (drag
+                        ? <DragAndDropFileArea
+                            onDragStart={(e) => dragStartHandler(e)}
+                            onDragLeave={(e) => dragLeaveHandler(e)}
+                            onDragOver={(e) => dragStartHandler(e)}
+                            onDrop={(e) => onDropHandler(e)}
+                        />
+                        : <FileList
+                            onDragStart={(e) => dragStartHandler(e)}
+                            onDragLeave={(e) => dragLeaveHandler(e)}
+                            onDragOver={(e) => dragStartHandler(e)}
+                        />)
                 }
             </div>
             <div className={classes.TemplateArea}>
@@ -77,7 +105,7 @@ const TemplaterPage = () => {
             </div>
             <CircleButton
                 currentTemplateId={currentTemplateId}
-                handlerDeleteTemplateFunction={handlerDeleteTemplate}/>
+                handlerDeleteTemplateFunction={deleteTemplateHandler}/>
         </div>
     );
 };
