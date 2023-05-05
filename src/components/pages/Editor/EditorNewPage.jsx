@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 
 const EditorNewPage = () => {
     const dispatch = useDispatch()
-    const handlerSaveTemplate = (data) => {
+    const saveTemplateHandler = (data) => {
         dispatch(saveTemplate(data))
     }
 
@@ -15,7 +15,7 @@ const EditorNewPage = () => {
                 templateTitle="New template"
                 templateMarkdown=""
                 templateMarkup=""
-                actionTemplate={handlerSaveTemplate}
+                actionTemplate={saveTemplateHandler}
             />
         </div>
     );

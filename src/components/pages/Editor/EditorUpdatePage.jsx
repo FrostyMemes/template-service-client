@@ -13,7 +13,7 @@ const EditorUpdatePage = () => {
     const [markup, setMarkup] = useState("")
 
     const dispatch = useDispatch()
-    const handlerUpdateTemplate = (data) => {
+    const updateTemplateHandler = (data) => {
 
         dispatch(updateTemplate(
             {
@@ -39,7 +39,7 @@ const EditorUpdatePage = () => {
                 templateTitle={title}
                 templateMarkdown={markdown}
                 templateMarkup={markup}
-                actionTemplate={handlerUpdateTemplate}
+                actionTemplate={updateTemplateHandler}
             />
         </div>
     );
