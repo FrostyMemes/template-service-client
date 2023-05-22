@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import classes from "./TemplaterPage.module.scss";
+import {useDispatch, useSelector} from "react-redux";
 import SwitchPanelButton from "../../ui/SwitchPanelButton/SwitchPanelButton";
+import DragAndDropFileArea from "../../ui/DragAndDropFileArea/DragAndDropFileArea";
 import TemplateList from "../../ui/TemplateList/TemplateList";
 import FileList from "../../ui/FileList/FileList";
 import Template from "../../ui/Template/Template";
 import CircleButton from "../../ui/CircleButton/CircleButton";
+import TemplateService from "../../../services/TemplateService";
 import {deleteTemplate, fetchTemplates} from "../../../store/reducers/TemplatesActions";
-import {useDispatch, useSelector} from "react-redux";
-import {getTemplateById} from "../../../services/TemplateService";
 import {faFileWord, faTableList} from "@fortawesome/free-solid-svg-icons";
 import ListViewOptions from "./ListViewOptions";
-import DragAndDropFileArea from "../../ui/DragAndDropFileArea/DragAndDropFileArea";
+import classes from "./TemplaterPage.module.scss";
+import FileService from "../../../services/FileService";
 
 
 const TemplaterPage = () => {
@@ -43,6 +44,9 @@ const TemplaterPage = () => {
     const onDropHandler = (e) => {
         e.preventDefault()
         const files = [...e.dataTransfer.files]
+        FileService.sendFile(files[0])
+            .then(response => console.log(response.data))
+            .catch(error => console.log(error))
         console.log(files)
         setDrag(false)
     }
@@ -64,7 +68,7 @@ const TemplaterPage = () => {
 
     useEffect(() => {
         if (currentTemplateId)
-            getTemplateById(currentTemplateId)
+            TemplateService.getTemplateById(currentTemplateId)
                 .then(response => {
                     setMarkup(response.data.markup)
                 })

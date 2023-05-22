@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {useEffect} from "react";
 import useDebounce from "../../hooks/use-debounce";
-import {sendMarkdown} from "../../../services/MarkdownService";
+import MarkdownService from "../../../services/MarkdownService";
 import MarkdownArea from "../../ui/MarkdownArea/MarkdownArea";
 import Template from "../../ui/Template/Template";
 import {faPencil} from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +19,7 @@ const Editor = ({templateTitle, templateMarkdown, templateMarkup, actionTemplate
     const debouncedRenderTerm = useDebounce(markdown, 700);
 
     const renderTemplate = (markdown) => {
-        sendMarkdown(markdown)
+        MarkdownService.sendMarkdown(markdown)
             .then(response => setRender(response.data))
             .catch(error => setRender(error.message))
     }

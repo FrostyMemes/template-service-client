@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Editor from  './Editor'
 import {useParams} from "react-router-dom";
-import {getTemplateById} from "../../../services/TemplateService";
+import TemplateService from "../../../services/TemplateService";
 import {useDispatch} from "react-redux";
 import {updateTemplate} from "../../../store/reducers/TemplatesActions";
 
@@ -23,7 +23,7 @@ const EditorUpdatePage = () => {
     }
 
     useEffect(() => {
-        getTemplateById(id)
+        TemplateService.getTemplateById(id)
             .then(response => {
                 seTitle(response.data.title)
                 setMarkdown(response.data.markdown)

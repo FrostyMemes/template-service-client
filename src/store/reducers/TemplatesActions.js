@@ -1,4 +1,4 @@
-import * as TemplateService from "../../services/TemplateService";
+import TemplateService from "../../services/TemplateService";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 
 export const fetchTemplates = createAsyncThunk(
