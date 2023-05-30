@@ -23,7 +23,7 @@ $dark: #000;
   margin-bottom: 10px;
 }
 
-input[type=text] {
+.template-block input[type=text] {
   width: 100%;
   padding: 1em 1em;
   font-size: 16px;
@@ -36,14 +36,14 @@ input[type=text] {
   outline: none;
 }
 
-input[type=text]:focus {
+.template-block input[type=text]:focus {
   border: #35a5e5 2px solid;
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 }
 
-textarea {
+.template-block textarea {
   width: 100%;
   padding: 1em 1em;
   height: 150px;
@@ -58,18 +58,18 @@ textarea {
   outline: none;
 }
 
-textarea:focus {
+.template-block textarea:focus {
   border: #35a5e5 2px solid;
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 }
 
-input[type=button]:focus {
+.template-block input[type=button]:focus {
   background-color: $focus-color;
 }
 
-select {
+.template-block select {
   width: 100%;
   padding: 1em 1em;
   box-sizing: border-box;
@@ -80,7 +80,7 @@ select {
   outline: none;
 }
 
-select:focus {
+.template-block select:focus {
   border: #35a5e5 2px solid;
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
@@ -92,7 +92,7 @@ select:focus {
   margin: 0.3rem 0px 0px 0px;
 }
 
-input[type="radio"] {
+.template-block input[type="radio"] {
   position: absolute;
   opacity: 0;
 
@@ -156,7 +156,7 @@ input[type="radio"] {
   margin: 0.3rem 0px 0px 0px;
 }
 
-input[type="checkbox"] {
+.template-block input[type="checkbox"] {
   position: absolute;
   opacity: 0;
 
