@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import classes from "./IconButton.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const IconButton = ({fontAwesomeIcon, onClick}) => {
