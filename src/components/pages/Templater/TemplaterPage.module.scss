@@ -20,6 +20,12 @@
   width: 82%;
   height: 100vh;
   max-height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+}
+
+.DocumentNameField{
+  padding: 1rem 2rem 0;
+}
+
+.DocumentName{
+  width: 100%;
 }
