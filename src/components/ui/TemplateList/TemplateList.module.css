@@ -11,15 +11,17 @@
     cursor: default;
     height: auto;
     width: 100%;
-
 }
 
-.templateContent{
+.templateItemContent{
     font-size: 1vw;
     padding: 2% 3%;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: white;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: normal;
+    line-break: auto;
+    -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;
     user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -27,6 +29,6 @@
     -ms-user-select: none;
 }
 
-.templateContent:hover{
+.templateItemContent:hover{
     background-color: #134388;
 }

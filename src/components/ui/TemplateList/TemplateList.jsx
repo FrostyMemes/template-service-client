@@ -11,7 +11,7 @@ const TemplateList = ({templateList, changeCurrentIdTemplate}) => {
                 <TemplateListItem
                     key={template.id}
                     id={template.id}
-                    title={template.title}
+                    templateTitle={template.title}
                     changeCurrentIdTemplate={changeCurrentIdTemplate}
                 />
             )}
