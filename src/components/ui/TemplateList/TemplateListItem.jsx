@@ -1,18 +1,15 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import classes from "./TemplateList.module.css";
 
 
-const TemplateListItem = ({id, title, changeCurrentIdTemplate}) => {
+const TemplateListItem = ({id, templateTitle, changeCurrentIdTemplate}) => {
     return (
-        <>
-            <div className={classes.templateItem}>
-                <div className={classes.templateContent}
-                onClick={event => changeCurrentIdTemplate(id)}>
-                    {title}
-                </div>
+        <div className={classes.templateItem}>
+            <div className={classes.templateItemContent}
+            onClick={() => changeCurrentIdTemplate(id)}>
+                {templateTitle}
             </div>
-        </>
+        </div>
     );
 };
 
