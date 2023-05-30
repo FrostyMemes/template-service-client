@@ -9,7 +9,7 @@ import {
 const templatesSlice = createSlice({
     name: 'templates',
     initialState:{
-        templates:[],
+        templateList:[],
         error: null
     },
 
@@ -22,7 +22,7 @@ const templatesSlice = createSlice({
             state.status = true
         },
         [fetchTemplates.fulfilled]: (state, action) => {
-            state.templates = action.payload
+            state.templateList = action.payload
             state.status = false
         },
         [fetchTemplates.rejected]: (state, action) => {
@@ -34,7 +34,7 @@ const templatesSlice = createSlice({
 
         },
         [saveTemplate.fulfilled]:(state, action) => {
-            state.templates.push(action.payload)
+            state.templateList.push(action.payload)
         },
         [saveTemplate.rejected]:(state, action) => {
             state.error = action.payload
@@ -44,9 +44,10 @@ const templatesSlice = createSlice({
 
         },
         [updateTemplate.fulfilled]:(state, action) => {
-            state.templates.push({
-                id: action.payload.Id,
-                title: action.payload.Title
+            state.templateList.map(template => {
+                return (template.id == action.payload.id)
+                    ? template.title = action.payload.title
+                    : template
             })
         },
         [updateTemplate.rejected]:(state, action) => {
@@ -58,14 +59,12 @@ const templatesSlice = createSlice({
         },
         [deleteTemplate.fulfilled]:(state, action) => {
             console.log(action.payload)
-            state.templates = state.templates.filter(template => template.id !== action.payload.id)
+            state.templateList = state.templateList.filter(template => template.id !== action.payload.id)
         },
         [deleteTemplate.rejected]:(state, action) => {
             state.error = action.payload
         },
     },
 })
-
-export const {addTemplate, removeTemplate, getAllTemplates} = templatesSlice.actions;
 
 export default templatesSlice.reducer;
