@@ -3,7 +3,7 @@ import TemplateListItem from "./TemplateListItem";
 
 import classes from "./TemplateList.module.css"
 
-const TemplateList = ({templateList, changeCurrentIdTemplate}) => {
+const TemplateList = ({templateList, changeCurrentIdTemplateHandler}) => {
 
     return (
         <div className={classes.templateList}>
@@ -12,7 +12,7 @@ const TemplateList = ({templateList, changeCurrentIdTemplate}) => {
                     key={template.id}
                     id={template.id}
                     templateTitle={template.title}
-                    changeCurrentIdTemplate={changeCurrentIdTemplate}
+                    changeCurrentIdTemplateHandler={(id) => changeCurrentIdTemplateHandler(id)}
                 />
             )}
         </div>
