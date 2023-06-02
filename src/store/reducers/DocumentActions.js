@@ -13,6 +13,18 @@ export const fetchDocuments = createAsyncThunk(
     }
 )
 
+export const saveDocument = createAsyncThunk(
+    'documents/saveDocument',
+    async (files, thunkAPI) =>{
+        try {
+            const response = await DocumentService.saveDocument(files[0])
+            return response.data
+        } catch (e){
+            return thunkAPI.rejectWithValue(e)
+        }
+    }
+)
+
 export const deleteDocument = createAsyncThunk(
     'documents/deleteDocument',
     async (id, thunkAPI) =>{
