@@ -45,7 +45,7 @@ const templatesSlice = createSlice({
         },
         [updateTemplate.fulfilled]:(state, action) => {
             state.templateList.map(template => {
-                return (template.id == action.payload.id)
+                return (template.id === action.payload.id)
                     ? template.title = action.payload.title
                     : template
             })
