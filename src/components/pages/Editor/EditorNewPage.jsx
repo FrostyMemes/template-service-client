@@ -15,7 +15,7 @@ const EditorNewPage = () => {
                 templateTitle="New template"
                 templateMarkdown=""
                 templateMarkup=""
-                actionTemplate={saveTemplateHandler}
+                actionTemplateHandler={saveTemplateHandler}
             />
         </div>
     );

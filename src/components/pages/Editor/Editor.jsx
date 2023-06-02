@@ -9,7 +9,7 @@ import {faCircleCheck} from  "@fortawesome/free-regular-svg-icons";
 import classes from "./Editor.module.scss";
 import IconButton from "../../ui/IconButton/IconButton";
 
-const Editor = ({templateTitle, templateMarkdown, templateMarkup, actionTemplate}) => {
+const Editor = ({templateTitle, templateMarkdown, templateMarkup, actionTemplateHandler}) => {
 
     const [title, setTitle] = useState("")
     const [markdown, setMarkdown] = useState("")
@@ -52,7 +52,7 @@ const Editor = ({templateTitle, templateMarkdown, templateMarkup, actionTemplate
             </div>
             <div className={classes.controlArea}>
                 <input type="button" value="Сохранить" className={classes.controlButton}
-                       onClick={() => actionTemplate(
+                       onClick={() => actionTemplateHandler(
                            {
                                Title: title,
                                Markdown: markdown,

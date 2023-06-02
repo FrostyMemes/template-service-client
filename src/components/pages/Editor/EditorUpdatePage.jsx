@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Editor from  './Editor'
 import {useParams} from "react-router-dom";
-import TemplateService from "../../../services/TemplateService";
 import {useDispatch} from "react-redux";
+import TemplateService from "../../../services/TemplateService";
 import {updateTemplate} from "../../../store/reducers/TemplatesActions";
 
 const EditorUpdatePage = () => {
@@ -39,7 +39,7 @@ const EditorUpdatePage = () => {
                 templateTitle={title}
                 templateMarkdown={markdown}
                 templateMarkup={markup}
-                actionTemplate={updateTemplateHandler}
+                actionTemplateHandler={updateTemplateHandler}
             />
         </div>
     );
