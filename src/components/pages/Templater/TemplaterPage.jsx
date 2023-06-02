@@ -12,7 +12,7 @@ import {faFileWord, faTableList} from "@fortawesome/free-solid-svg-icons";
 import ListViewOptions from "./ListViewOptions";
 import classes from "./TemplaterPage.module.scss";
 import DocumentService from "../../../services/DocumentService";
-import {fetchDocuments} from "../../../store/reducers/DocumentActions";
+import {deleteDocument, fetchDocuments, saveDocument} from "../../../store/reducers/DocumentActions";
 import {TextField} from "@mui/material";
 
 
@@ -36,6 +36,12 @@ const TemplaterPage = () => {
         }
     }
 
+    const deleteDocumentHandler = (idDocument) =>{
+        dispatch(deleteDocument(idDocument))
+        if (idDocument === currentDocumentId)
+            setCurrentDocumentId(null)
+    }
+
     const dragStartHandler = (e) => {
         e.preventDefault()
         setDrag(true)
@@ -49,10 +55,7 @@ const TemplaterPage = () => {
     const onDropHandler = (e) => {
         e.preventDefault()
         const files = [...e.dataTransfer.files]
-        DocumentService.saveFile(files[0])
-            .then(response => console.log(response.data))
-            .catch(error => console.log(error))
-        console.log(files)
+        dispatch(saveDocument(files))
         setDrag(false)
     }
 
@@ -61,7 +64,7 @@ const TemplaterPage = () => {
             case ListViewOptions.TemplateListView:
                 return <TemplateList
                     templateList={templates}
-                    changeCurrentIdTemplate={setCurrentTemplateId}/>
+                    changeCurrentIdTemplateHandler={(id) => setCurrentTemplateId(id)}/>
             case ListViewOptions.FileListView:
                 return <DocumentList/>
         }
@@ -95,7 +98,7 @@ const TemplaterPage = () => {
                 {listViewOption === ListViewOptions.TemplateListView
                     ? (<TemplateList
                         templateList={templates}
-                        changeCurrentIdTemplate={setCurrentTemplateId}/>)
+                        changeCurrentIdTemplateHandler={(id) => setCurrentTemplateId(id)}/>)
                     : (drag
                         ? <DragAndDropFileArea
                             onDragStart={(e) => dragStartHandler(e)}
@@ -105,7 +108,8 @@ const TemplaterPage = () => {
                         />
                         : <DocumentList
                             documentList={documents}
-                            changeCurrentIdDocument={setCurrentDocumentId}
+                            changeCurrentIdDocumentHandler={(id) => setCurrentDocumentId(id)}
+                            deleteDocumentByIdHandler={(id) => deleteDocumentHandler(id)}
                             onDragStart={(e) => dragStartHandler(e)}
                             onDragLeave={(e) => dragLeaveHandler(e)}
                             onDragOver={(e) => dragStartHandler(e)}
@@ -121,7 +125,7 @@ const TemplaterPage = () => {
             </div>
             <CircleButton
                 currentTemplateId={currentTemplateId}
-                handlerDeleteTemplateFunction={deleteTemplateHandler}/>
+                onDeleteTemplate={() => deleteTemplateHandler()}/>
         </div>
     );
 };
