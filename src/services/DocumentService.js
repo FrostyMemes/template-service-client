@@ -9,14 +9,10 @@ export default class DocumentService {
     }
 
     static async deleteDocument(id){
-        return api.get(`${serviceUrl}/${id}`)
+        return api.delete(`${serviceUrl}/${id}`)
     }
 
-    static async getTemplatedDocument(id, templateFields){
-        return 1;
-    }
-
-    static async saveFile(file){
+    static async saveDocument(file){
         const formData = new FormData();
         formData.append("document", file)
         return api.post(`${serviceUrl}`, formData,
