@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {fetchDocuments, deleteDocument} from "./DocumentActions";
+import {fetchDocuments, deleteDocument, saveDocument} from "./DocumentActions";
 
 const documentSlice = createSlice({
     name: 'documents',
@@ -22,6 +22,25 @@ const documentSlice = createSlice({
         },
         [fetchDocuments.rejected]: (state, action) => {
             state.status = false
+            state.error = action.payload
+        },
+
+        [saveDocument.pending]: (state, action) =>{
+        },
+        [saveDocument.fulfilled]: (state, action) => {
+            state.documentList.push(action.payload)
+        },
+        [saveDocument.rejected]: (state, action) => {
+            state.error = action.payload
+        },
+
+        [deleteDocument.pending]: (state, action) =>{
+
+        },
+        [deleteDocument.fulfilled]: (state, action) => {
+            state.documentList = state.documentList.filter(document => document.id !== action.payload.id)
+        },
+        [deleteDocument.rejected]: (state, action) => {
             state.error = action.payload
         },
     },

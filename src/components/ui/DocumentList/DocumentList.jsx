@@ -1,10 +1,8 @@
 import React from 'react';
 import classes from "./DocumentList.module.scss";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTrashCan} from  "@fortawesome/free-regular-svg-icons";
 import DocumentListItem from "./DocumentListItem";
 
-const DocumentList = ({documentList, onDragStart, onDragLeave, onDragOver, changeCurrentIdDocument}) => {
+const DocumentList = ({documentList, onDragStart, onDragLeave, onDragOver, changeCurrentIdDocumentHandler, deleteDocumentByIdHandler}) => {
 
     return (
         <div
@@ -18,7 +16,8 @@ const DocumentList = ({documentList, onDragStart, onDragLeave, onDragOver, chang
                     key={document.id}
                     id={document.id}
                     documentName={document.fileName}
-                    changeCurrentIdDocument={changeCurrentIdDocument}
+                    changeCurrentIdDocumentHandler={(id) => changeCurrentIdDocumentHandler(id)}
+                    deleteDocumentByIdHandler={(id) => deleteDocumentByIdHandler(id)}
                 />
             )}
         </div>
