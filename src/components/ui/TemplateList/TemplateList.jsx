@@ -12,7 +12,7 @@ const TemplateList = ({templateList, changeCurrentIdTemplateHandler}) => {
                     key={template.id}
                     id={template.id}
                     templateTitle={template.title}
-                    changeCurrentIdTemplateHandler={(id) => changeCurrentIdTemplateHandler(id)}
+                    changeCurrentIdTemplateHandler={changeCurrentIdTemplateHandler}
                 />
             )}
         </div>
