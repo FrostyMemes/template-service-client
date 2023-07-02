@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {useSelector} from "react-redux";
 import "./Template.scss";
-import CircleButton from "../CircleButton/CircleButton";
+import $ from "jquery"
 
 
-const Template = ({markup}) => {
 
-    //const template = useSelector(state => state.templates.currentTemplate)
+const Template = ({markup, DOMRef, sendDocumentHandler}) => {
+
     const template = `
         <div class="template-element">
            <div class="template-input-element">
@@ -67,8 +66,15 @@ const Template = ({markup}) => {
 
     return (
         <div className="template-block">
-            <div dangerouslySetInnerHTML={{__html: markup}}></div>
-            {/*<div dangerouslySetInnerHTML={{__html: template}}></div>*/}
+            <div ref={DOMRef} id="template-data" dangerouslySetInnerHTML={{__html: markup}}/>
+            {markup &&
+                <div className="template-element">
+                    <input className="button-send-template"
+                           value="Отправить"
+                           type="button"
+                           onClick={e => sendDocumentHandler()}/>
+                </div>
+            }
         </div>
     );
 };
