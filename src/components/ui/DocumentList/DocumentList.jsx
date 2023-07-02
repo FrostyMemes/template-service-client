@@ -16,8 +16,8 @@ const DocumentList = ({documentList, onDragStart, onDragLeave, onDragOver, chang
                     key={document.id}
                     id={document.id}
                     documentName={document.fileName}
-                    changeCurrentIdDocumentHandler={(id) => changeCurrentIdDocumentHandler(id)}
-                    deleteDocumentByIdHandler={(id) => deleteDocumentByIdHandler(id)}
+                    changeCurrentIdDocumentHandler={changeCurrentIdDocumentHandler}
+                    deleteDocumentByIdHandler={deleteDocumentByIdHandler}
                 />
             )}
         </div>
